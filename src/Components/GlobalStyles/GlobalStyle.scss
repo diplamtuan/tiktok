@@ -3,6 +3,10 @@
 
 :root {
     --primary: #fe2c55;
+
+    // height
+    --default-header-height: 60px;
+    --default-layout-width: 1448px;
 }
 * {
     box-sizing: border-box;
