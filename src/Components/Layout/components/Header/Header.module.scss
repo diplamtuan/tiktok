@@ -8,4 +8,27 @@
 
 .inner {
     width: var(--default-layout-width);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo img {
+    width: 118px;
+    height: 42px;
+}
+
+.search {
+}
+
+.clear {
+}
+
+.loading {
+}
+
+.search-btn {
+}
+
+.action {
 }
