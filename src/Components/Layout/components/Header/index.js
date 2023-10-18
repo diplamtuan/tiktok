@@ -1,10 +1,21 @@
+import { useEffect, useState } from 'react';
 import classnames from 'classnames/bind';
-import styles from './Header.module.scss';
-import images from '~/assets/images';
+import Tippy from '@tippyjs/react/headless';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
+
+import styles from './Header.module.scss';
+import images from '~/assets/images';
+import { Wrapper as PopperWrapper } from '~/Components/Popper';
+import AccountItem from '~/Components/AccountItem';
 const cx = classnames.bind(styles);
 function Header() {
+    const [searchResults, setSearchResults] = useState([]);
+    useEffect(() => {
+        setTimeout(() => {
+            setSearchResults([]);
+        }, 0);
+    }, []);
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -12,18 +23,34 @@ function Header() {
                     <img src={images.logo} alt="tiktok" />
                 </div>
 
-                <div className={cx('search')}>
-                    <input placeholder="Search" spellCheck={false} />
-                    <button className={cx('clear')}>{<FontAwesomeIcon icon={faCircleXmark} />}</button>
+                <Tippy
+                    interactive
+                    visible={searchResults.length > 0}
+                    render={(attrs) => (
+                        <div className={cx('search-results')} tabIndex="-1" {...attrs}>
+                            <PopperWrapper>
+                                <h4 className={cx('search-title')}>Account</h4>
+                                <AccountItem />
+                                <AccountItem />
+                                <AccountItem />
+                                <AccountItem />
+                            </PopperWrapper>
+                        </div>
+                    )}
+                >
+                    <div className={cx('search')}>
+                        <input placeholder="Search" spellCheck={false} />
+                        <button className={cx('clear')}>{<FontAwesomeIcon icon={faCircleXmark} />}</button>
 
-                    {/* Loading */}
-                    <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
-                    {/* Search btn */}
+                        {/* Loading */}
+                        <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
+                        {/* Search btn */}
 
-                    <button className={cx('search-btn')}>
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                    </button>
-                </div>
+                        <button className={cx('search-btn')}>
+                            <FontAwesomeIcon icon={faMagnifyingGlass} />
+                        </button>
+                    </div>
+                </Tippy>
 
                 {/* Action */}
                 <div className={cx('action')}></div>
