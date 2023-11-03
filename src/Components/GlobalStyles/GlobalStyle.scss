@@ -34,6 +34,7 @@ button {
     border: none;
 }
 a {
-    color: --text-color;
+    color: var(--black-color);
     text-decoration: none;
+    display: inline-block;
 }
