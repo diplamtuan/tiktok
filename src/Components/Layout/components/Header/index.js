@@ -31,6 +31,21 @@ const MENU_ITEMS = [
     {
         icon: <FontAwesomeIcon icon={faEarthAsia} />,
         title: 'English',
+        children: {
+            title: 'Language',
+            data: [
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+            ],
+        },
     },
     {
         icon: <FontAwesomeIcon icon={faCircleQuestion} />,
@@ -53,6 +68,19 @@ function Header() {
             setSearchResults([]);
         }, 0);
     }, []);
+
+    const handleChange = (item) => {
+        switch (item.type) {
+            case 'language': {
+                // Handle switch language
+                console.log('Day la chuyen ngon ngu');
+                break;
+            }
+            default:
+                console.log(item);
+                break;
+        }
+    };
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -101,7 +129,7 @@ function Header() {
                         <FontAwesomeIcon icon={faDesktop} />
                     </button>
 
-                    <Menu data={MENU_ITEMS}>
+                    <Menu data={MENU_ITEMS} onChange={handleChange}>
                         <button className={cx('more-btn')}>
                             <FontAwesomeIcon icon={faEllipsisVertical} />
                         </button>

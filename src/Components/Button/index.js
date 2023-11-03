@@ -46,9 +46,9 @@ const Button = ({
     });
     return (
         <Comp className={classes} {...props}>
-            <span class={cx('icon')}>{leftIcon}</span>
-            <span class={cx('title')}>{children}</span>
-            <span class={cx('icon')}>{rightIcon}</span>
+            <span className={cx('icon')}>{leftIcon}</span>
+            <span className={cx('title')}>{children}</span>
+            <span className={cx('icon')}>{rightIcon}</span>
         </Comp>
     );
 };
