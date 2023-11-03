@@ -94,3 +94,23 @@
 
 .action {
 }
+.desktop-app {
+    margin-left: 24px;
+    font-size: 2rem;
+    background-color: transparent;
+    cursor: pointer;
+}
+.more-btn {
+    font-size: 2rem;
+    margin-left: 30px;
+    margin-right: 20px;
+    background-color: transparent;
+    cursor: pointer;
+    font-weight: 400;
+    padding: 4px 8px;
+}
+
+// Menu
+.menu-list {
+    width: 224px;
+}
