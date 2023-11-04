@@ -3,12 +3,13 @@
     min-width: 100px;
     font-size: 1.6rem;
     padding: 8px 9px;
-    font-weight: 700;
+    font-weight: 600;
     cursor: pointer;
     background-color: var(--white-color);
     border: 1px solid transparent;
     user-select: none;
-
+    display: flex;
+    align-items: center;
     & + & {
         margin-left: 16px;
     }
@@ -23,10 +24,16 @@
 .title + .icon {
     margin-left: 16px;
 }
+.title {
+    width: 100%;
+}
 .icon {
     width: 20px;
     display: inline-block;
     text-align: center;
+}
+.icon img {
+    width: 20px;
 }
 
 // Button types

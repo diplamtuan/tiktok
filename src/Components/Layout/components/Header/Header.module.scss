@@ -93,16 +93,19 @@
 }
 
 .action {
+    display: flex;
+    align-items: center;
 }
 .desktop-app {
     margin-left: 24px;
+    margin-right: 12px;
     font-size: 2rem;
     background-color: transparent;
     cursor: pointer;
 }
 .more-btn {
     font-size: 2rem;
-    margin-left: 30px;
+    margin-left: 18px;
     margin-right: 20px;
     background-color: transparent;
     cursor: pointer;
@@ -113,4 +116,19 @@
 // Menu
 .menu-list {
     width: 224px;
+}
+
+// Action btns
+.action-btn {
+    padding: 4px 12px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.avatar-user {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    margin-left: 12px;
+    cursor: pointer;
 }
