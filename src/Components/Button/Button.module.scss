@@ -9,7 +9,8 @@
     border: 1px solid transparent;
     user-select: none;
     display: flex;
-    align-items: center;
+    font-family: 'TikTokFont', sans-serif;
+
     & + & {
         margin-left: 16px;
     }
@@ -22,7 +23,7 @@
 
 .icon + .title,
 .title + .icon {
-    margin-left: 16px;
+    margin-left: 8px;
 }
 .title {
     width: 100%;

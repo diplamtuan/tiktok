@@ -19,6 +19,8 @@ import { Wrapper as PopperWrapper } from '~/Components/Popper';
 import AccountItem from '~/Components/AccountItem';
 import Button from '~/Components/Button';
 import Menu from '~/Components/Popper/Menu';
+import { DesktopIcon, InboxIcon, MessageIcon } from '~/Components/Icons';
+import { Image } from '~/Components/Image';
 const cx = classnames.bind(styles);
 const MENU_ITEMS = [
     {
@@ -154,16 +156,20 @@ function Header() {
                     </Button>
                     {currentUser ? (
                         <>
-                            <button className={cx('desktop-app')}>
+                            {/* <button className={cx('desktop-app')}>
                                 <img src={images.desktopIcon} alt="desktop" />
-                            </button>
+                            </button> */}
+                            <DesktopIcon className={cx('desktop-app')} />
+                            {/* <MessageIcon /> */}
                         </>
                     ) : (
                         <>
                             <Button primary>Log in</Button>
-                            <button className={cx('desktop-app')}>
+                            <DesktopIcon className={cx('desktop-app')} />
+
+                            {/* <button className={cx('desktop-app')}>
                                 <img src={images.desktopIcon} alt="desktop" />
-                            </button>
+                            </button> */}
                         </>
                     )}
 
@@ -171,15 +177,16 @@ function Header() {
                     {currentUser ? (
                         <>
                             <Tippy content="Messages">
-                                <button className={cx('action-btn')}>
+                                {/* <button className={cx('action-btn')}>
                                     <img src={images.messageIcon} alt="messageIcon" />
-                                    {/* <FontAwesomeIcon icon={faMessage} /> */}
-                                </button>
+                                </button> */}
+                                <MessageIcon className={cx('actionBtn')} />
                             </Tippy>
                             <Tippy content="Inbox">
-                                <button className={cx('action-btn')}>
+                                {/* <button className={cx('action-btn')}>
                                     <img src={images.inboxIcon} alt="inboxIcon" />
-                                </button>
+                                </button> */}
+                                <InboxIcon width="3.2rem" height="3.2rem" className={cx('actionBtn')} />
                             </Tippy>
                         </>
                     ) : (
@@ -187,8 +194,14 @@ function Header() {
                     )}
                     <Menu data={currentUser ? currentMenu : MENU_ITEMS} onChange={handleChange}>
                         {currentUser ? (
-                            <img className={cx('avatar-user')} src={images.avatar} alt="avatar-user" />
+                            <Image
+                                className={cx('avatar-user')}
+                                src={images.avatar}
+                                alt="avatar-user"
+                                // fallback="https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png"
+                            />
                         ) : (
+                            // <img className={cx('avatar-user')} src={images.avatar} alt="avatar-user" />
                             <button className={cx('more-btn')}>
                                 <FontAwesomeIcon icon={faEllipsisVertical} />
                             </button>

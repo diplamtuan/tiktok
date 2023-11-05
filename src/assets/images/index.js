@@ -14,6 +14,7 @@ const image = {
     helpIcon: require('~/assets/images/help.svg').default,
     keyboardIcon: require('~/assets/images/keyboard.svg').default,
     darkModeIcon: require('~/assets/images/darkmode.svg').default,
+    noImage: require('~/assets/images/noimage.png'),
 };
 
 export default image;
