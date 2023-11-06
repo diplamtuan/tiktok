@@ -7,15 +7,17 @@ import { Wrapper as PopperWrapper } from '~/Components/Popper';
 import AccountItem from '~/Components/AccountItem';
 import styles from './Search.module.scss';
 import { SearchIcon } from '~/Components/Icons';
+import { useDebounce } from '~/hooks';
 const cx = classNames.bind(styles);
 function Search() {
     const [searchResults, setSearchResults] = useState([]);
     const [searchValue, setSearchValue] = useState('');
     const [showResult, setShowResult] = useState(true);
     const [loading, setLoading] = useState(false);
+    const debounced = useDebounce(searchValue, 500);
     useEffect(() => {
-        getApi(searchValue);
-    }, [searchValue]);
+        getApi(debounced);
+    }, [debounced]);
 
     const getApi = async (value) => {
         if (!value.trim()) {
@@ -71,7 +73,7 @@ function Search() {
                         setShowResult(true);
                     }}
                 />
-                {!!searchValue && !loading && (
+                {!!debounced && !loading && (
                     <button className={cx('clear')} onClick={handleClear}>
                         {<FontAwesomeIcon icon={faCircleXmark} />}
                     </button>
