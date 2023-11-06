@@ -7,7 +7,7 @@ import MenuItem from './MenuItem';
 import Header from './Header';
 const cx = classNames.bind(style);
 const defaultFn = () => {};
-const Menu = ({ children, data = [], onChange = defaultFn }) => {
+const Menu = ({ children, data = [], onChange = defaultFn, hideOnClick = false }) => {
     const [history, setHistory] = useState([{ data: data }]);
     const current = history[history.length - 1];
     const render = () => {
@@ -34,6 +34,7 @@ const Menu = ({ children, data = [], onChange = defaultFn }) => {
             interactive
             offset={[10, 10]}
             placement="bottom-end"
+            hideOnClick={hideOnClick}
             onHide={() => {
                 setHistory((prev) => prev.slice(0, 1));
             }}

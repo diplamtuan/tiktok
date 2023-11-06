@@ -4,6 +4,7 @@ import 'tippy.js/dist/tippy.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisVertical, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 import styles from './Header.module.scss';
 import images from '~/assets/images';
@@ -13,6 +14,8 @@ import Menu from '~/Components/Popper/Menu';
 import { DesktopIcon, InboxIcon, MessageIcon } from '~/Components/Icons';
 import Image from '~/Components/Image';
 import Search from '../Search';
+import routes from '~/config/routes';
+
 const cx = classnames.bind(styles);
 const MENU_ITEMS = [
     {
@@ -41,7 +44,7 @@ const MENU_ITEMS = [
     {
         icon: <img src={images.helpIcon} alt="help" />,
         title: 'Feedback and help',
-        to: '/feedback',
+        to: routes.feedback,
     },
     {
         icon: <img src={images.keyboardIcon} alt="Keyboard" />,
@@ -72,29 +75,29 @@ function Header() {
         {
             icon: <img src={images.profieIcon} alt="ProfileIcon" />,
             title: 'View profile',
-            to: '/profile',
+            to: routes.profile,
         },
         {
             icon: <img src={images.favoriteIcon} alt="Favorites" />,
             title: 'Favorites',
-            to: '/feedback',
+            to: routes.feedback,
         },
         {
             icon: <img src={images.coinIcon} alt="Coins" />,
             title: 'Get Coins',
-            to: '/feedback',
+            to: routes.feedback,
         },
         MENU_ITEMS[0],
         {
             icon: <img src={images.settingIcon} alt="Settings" />,
             title: 'Settings',
-            to: '/feedback',
+            to: routes.feedback,
         },
         ...newMenuItem,
         {
             icon: <img src={images.logoutIcon} alt="logout" />,
             title: 'Log out',
-            to: '/feedback',
+            to: routes.feedback,
             separate: true,
         },
     ];
@@ -102,9 +105,9 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <div className={cx('logo')}>
+                <Link to={routes.home} className={cx('logo')}>
                     <img src={images.logo} alt="tiktok" />
-                </div>
+                </Link>
                 {/* Search */}
                 <Search />
                 {/* Action */}

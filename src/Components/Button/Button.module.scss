@@ -9,7 +9,7 @@
     border: 1px solid transparent;
     user-select: none;
     display: flex;
-    font-family: 'TikTokFont', sans-serif;
+    font-family: var(--font-family);
 
     & + & {
         margin-left: 16px;
