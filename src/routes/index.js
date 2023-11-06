@@ -17,7 +17,7 @@ const publicRoutes = [
         element: Following,
     },
     {
-        path: '/profile',
+        path: '/:nickname',
         element: Profile,
     },
     {
