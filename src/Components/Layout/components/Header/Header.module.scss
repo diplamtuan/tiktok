@@ -20,78 +20,6 @@
     height: 42px;
 }
 
-.search,
-.search-results {
-    width: 500px;
-}
-.search {
-    --search-height: 46px;
-    height: var(--search-height);
-    border-radius: var(--search-border-radius);
-    padding-left: 16px;
-    background: rgba(22, 24, 35, 0.06);
-    display: flex;
-    position: relative;
-    border: 1px solid transparent;
-    &:focus-within {
-        border-color: #c5c6c9;
-    }
-    input {
-        flex: 1;
-        font-size: 1.6rem;
-        color: var(--black-color);
-        height: 100%;
-        background-color: transparent;
-    }
-    input:not(:placeholder-shown) ~ .search-btn {
-        cursor: pointer;
-        color: rgba(22, 24, 35, 0.75);
-    }
-
-    &:hover {
-        border-color: #c5c6c9;
-        .search-btn {
-            background-color: #ccc;
-            cursor: pointer;
-            color: rgba(22, 24, 35, 0.75);
-        }
-    }
-    &::after {
-        display: block;
-        position: absolute;
-        content: '';
-        width: 1px;
-        height: calc(var(--search-height) - 18px);
-        top: 9px;
-        right: var(--search-button-width);
-        background-color: rgba(22, 24, 35, 0.12);
-    }
-}
-
-.search-title {
-    font-size: 1.4rem;
-    font-weight: 600;
-    padding: 5px 12px;
-    color: rgba(22, 24, 35, 0.5);
-}
-.clear,
-.loading {
-    font-size: 1.6rem;
-    color: rgba(22, 24, 35, 0.34);
-    position: absolute;
-    right: calc(var(--search-button-width) + 16px);
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.search-btn {
-    width: var(--search-button-width);
-    border-top-right-radius: var(--search-border-radius);
-    border-bottom-right-radius: var(--search-border-radius);
-    font-size: 2.2rem;
-    color: rgba(22, 24, 35, 0.34);
-}
-
 .action {
     display: flex;
     align-items: center;
@@ -122,6 +50,24 @@
 .actionBtn {
     margin-left: 20px;
     cursor: pointer;
+    background-color: transparent;
+    position: relative;
+}
+
+.actionQuantity {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    font-size: 1.4rem;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 1.9rem;
+    background: rgb(254, 44, 85);
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    font-family: 'TikTokFont', sans-serif;
 }
 .avatar-user {
     height: 32px;
