@@ -9,7 +9,7 @@ import AccountItem from '~/Components/AccountItem';
 import styles from './Search.module.scss';
 import { SearchIcon } from '~/Components/Icons';
 import { useDebounce } from '~/hooks';
-import * as searchServices from '~/apiServices/searchServices';
+import * as searchServices from '~/services/searchServices';
 const cx = classNames.bind(styles);
 function Search() {
     const [searchResults, setSearchResults] = useState([]);

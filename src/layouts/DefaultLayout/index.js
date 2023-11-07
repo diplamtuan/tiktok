@@ -1,4 +1,4 @@
-import Header from '~/Components/Layout/components/Header';
+import Header from '~/layouts/components/Header';
 import Siderbar from './Siderbar';
 
 // SCSS
