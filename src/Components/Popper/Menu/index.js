@@ -49,7 +49,7 @@ const Menu = ({ children, data = [], onChange = defaultFn, hideOnClick = false }
                                 }}
                             />
                         )}
-                        {render()}
+                        <div className={cx('menu-body')}> {render()}</div>
                     </PopperWrapper>
                 </div>
             )}

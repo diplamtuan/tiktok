@@ -48,45 +48,49 @@ function Search() {
         }
     };
     return (
-        <TippyHeadless
-            interactive
-            visible={showResult && searchResults.length > 0}
-            render={(attrs) => (
-                <div className={cx('search-results')} tabIndex="-1" {...attrs}>
-                    <PopperWrapper>
-                        <h4 className={cx('search-title')}>Account</h4>
-                        {!!searchResults && searchResults.map((item) => <AccountItem key={item.id} data={item} />)}
-                    </PopperWrapper>
-                </div>
-            )}
-            onClickOutside={handleHideResult}
-        >
-            <div className={cx('search')}>
-                <input
-                    ref={inputRef}
-                    value={searchValue}
-                    placeholder="Search"
-                    spellCheck={false}
-                    onChange={handleSearch}
-                    onFocus={() => {
-                        setShowResult(true);
-                    }}
-                />
-                {!!debounced && !loading && (
-                    <button className={cx('clear')} onClick={handleClear}>
-                        {<FontAwesomeIcon icon={faCircleXmark} />}
-                    </button>
+        // Using a wrapper <div> or <span> tag around the reference element
+        // solves this by creating a new parentNode context
+        <div>
+            <TippyHeadless
+                interactive
+                visible={showResult && searchResults.length > 0}
+                render={(attrs) => (
+                    <div className={cx('search-results')} tabIndex="-1" {...attrs}>
+                        <PopperWrapper>
+                            <h4 className={cx('search-title')}>Account</h4>
+                            {!!searchResults && searchResults.map((item) => <AccountItem key={item.id} data={item} />)}
+                        </PopperWrapper>
+                    </div>
                 )}
+                onClickOutside={handleHideResult}
+            >
+                <div className={cx('search')}>
+                    <input
+                        ref={inputRef}
+                        value={searchValue}
+                        placeholder="Search"
+                        spellCheck={false}
+                        onChange={handleSearch}
+                        onFocus={() => {
+                            setShowResult(true);
+                        }}
+                    />
+                    {!!debounced && !loading && (
+                        <button className={cx('clear')} onClick={handleClear}>
+                            {<FontAwesomeIcon icon={faCircleXmark} />}
+                        </button>
+                    )}
 
-                {/* Loading */}
-                {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
-                {/* Search btn */}
+                    {/* Loading */}
+                    {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
+                    {/* Search btn */}
 
-                <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
-                    <SearchIcon />
-                </button>
-            </div>
-        </TippyHeadless>
+                    <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
+                        <SearchIcon />
+                    </button>
+                </div>
+            </TippyHeadless>
+        </div>
     );
 }
 
