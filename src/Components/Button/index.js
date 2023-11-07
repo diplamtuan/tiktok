@@ -56,5 +56,16 @@ const Button = ({
 
 Button.propTypes = {
     children: PropTypes.node.isRequired,
+    to: PropTypes.string,
+    href: PropTypes.string,
+    text: PropTypes.bool,
+    primary: PropTypes.bool,
+    outline: PropTypes.bool,
+    large: PropTypes.bool,
+    disabled: PropTypes.bool,
+    className: PropTypes.string,
+    onClick: PropTypes.func,
+    leftIcon: PropTypes.node,
+    rightIcon: PropTypes.node,
 };
 export default Button;
